@@ -1,0 +1,19 @@
+Partiendo del ejemplo disponible en el repositorio https://github.com/dudwcs/Actividad4.3-Transacciones-mysqli-enunciado.git, similar al enunciado de la Tarea04.1, pero utilizando mysqli en lugar de PDO.
+
+1- En el script conexion.php, modifica la función getConnection() para que lea los datos de conexión de un fichero db_settings.ini en lugar de almacenar directamente los datos de conexión el propio archivo php. En él deberán figurar:
+
+host
+schema
+username
+password
+port
+
+2-Implementa la function findAllAuthors() en crear.php para que haga una consulta no preparada con mysqli y obtenga un único array asociativo con el identificador y  los nombres completos de todos los autores ordenados por last_name. El nombre completo debe ser la concatenación de last_name, first_name y middle_name. Mucho cuidado porque cualquiera de los 3 podría ser NULL.  Pueden ser de utilidad funciones SQL:
+
+https://mariadb.com/kb/en/concat/
+https://mariadb.com/kb/en/coalesce/
+3- Completa crear.php para que inserte en una misma transacción el nuevo libro en la tabla books y, si se han seleccionado autores (uno o más), añada un nuevo registro en la tabla intermedia book_authors.
+
+Crea al menos una función para este propósito
+Utiliza sentencias preparadas con sustitución de parámetros con bind_param
+Controla las posibles excepciones en un try-catch y realiza un rollback en caso de error
